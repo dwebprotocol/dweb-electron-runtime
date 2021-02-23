@@ -1,9 +1,9 @@
-# hypertron
+# dWeb Electron Runtime
 
-Electron based runtime for running [Hyperdrive](https://github.com/hypercore-protocol/hyperdrive) desktop apps
+Electron based runtime for running [dDrive](https://github.com/protocol/hyperdrive) desktop apps
 
 ```
-npm install -g hypertron
+npm install -g dtron
 ```
 
 (Experimental and a work in progress)
@@ -13,14 +13,14 @@ npm install -g hypertron
 Run the cli
 
 ``` sh
-hypertron <path-to-your-app> [options]
+dtron <path-to-your-app> [options]
 ```
 
 If you want to embed in your own electron:
 
 ``` js
 // in your own electron.js ...
-require('hypertron')
+require('dtron')
 ```
 
 ## License
