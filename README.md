@@ -1,6 +1,6 @@
 # dWeb Electron Runtime
 
-Electron based runtime for running [dDrive](https://github.com/protocol/hyperdrive) desktop apps
+Electron based runtime for running [dDrive](https://github.com/dwebprotocol/ddrive) desktop apps
 
 ```
 npm install -g dtron
