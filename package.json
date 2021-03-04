@@ -1,15 +1,15 @@
 {
-  "name": "hypertron",
-  "version": "0.0.2",
-  "description": "Electron based runtime for Hyperdrive apps",
+  "name": "dweb-electron-runtime",
+  "version": "1.0.0",
+  "description": "Electron-based runtime for dDrive-integrated apps",
   "main": "electron.js",
   "bin": {
-    "hypertron": "./bin.js"
+    "dtron": "./bin.js"
   },
   "dependencies": {
     "electron": ">=9",
-    "hyperdrive": "^10.15.1",
-    "hyperspace": "^3.6.2",
+    "ddrive": "^5.0.0",
+    "dhub": "^1.0.0",
     "mime": "^2.4.6",
     "minimist": "^1.2.5",
     "resolve": "^1.17.0"
@@ -17,12 +17,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/mafintosh/hypertron.git"
+    "url": "https://github.com/dwebprotocol/dweb-electron-runtime.git"
   },
-  "author": "Mathias Buus (@mafintosh)",
+  "author": "PeepsLabs <peepslabs@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mafintosh/hypertron/issues"
+    "url": "https://github.com/dwebprotocol/dweb-electron-runtime/issues"
   },
-  "homepage": "https://github.com/mafintosh/hypertron"
+  "homepage": "https://dwebx.org"
 }
