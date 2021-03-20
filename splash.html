@@ -189,8 +189,8 @@
       const Drives = require(path.join(__dirname, './lib/drive-cache'))
       const Manifest = require(path.join(__dirname, './lib/manifest'))
 
-      const d = new Drives(hyperspace)
-      const m = new Manifest(d, hyperspace.config.app)
+      const d = new Drives(dhub)
+      const m = new Manifest(d, dhub.config.app)
 
       a.start()
       var [err, data] = await ev(m.load())
@@ -220,13 +220,13 @@
       c.stop(err, err ? err.message : '')
 
       if (manifest) {
-        hyperspace.config = { ...manifest, ...hyperspace.config }
+        dhub.config = { ...manifest, ...dhub.config }
       }
 
       const { launch } = remote.process
 
       await new Promise(r => setTimeout(r, 1000))
-      launch(data, hyperspace.config, { trace: p && p.trace })
+      launch(data, dhub.config, { trace: p && p.trace })
       remote.getCurrentWindow().close()
 
     }

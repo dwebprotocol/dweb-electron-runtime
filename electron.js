@@ -1,6 +1,6 @@
 const { BrowserWindow, app, protocol, Menu } = require('electron')
 const path = require('path')
-const hyperspace = require('hyperspace')
+const dhub = require('dhub')
 const Manifest = require('./lib/manifest')
 const Drives = require('./lib/drive-cache')
 
@@ -35,24 +35,24 @@ if (appUrl.indexOf('://') === -1) {
 let win, server
 
 protocol.registerSchemesAsPrivileged([
-  { scheme: 'hyper', privileges: { standard: true, secure: true, bypassCSP: true, corsEnabled: true, supportFetchAPI: true, allowServiceWorkers: true }},
+  { scheme: 'dweb', privileges: { standard: true, secure: true, bypassCSP: true, corsEnabled: true, supportFetchAPI: true, allowServiceWorkers: true }},
   { scheme: 'file', privileges: { standard: true, secure: true, bypassCSP: true, corsEnabled: true, supportFetchAPI: true, allowServiceWorkers: true }}
 ])
 
-app.name = 'Hyperspace'
+app.name = 'DHub'
 app.allowRendererProcessReuse = false
 app.on('ready', start)
 app.on('will-quit', stop)
 
 async function start () {
-  let client = new hyperspace.Client()
+  let client = new dhub.Client()
 
   try {
     await client.ready()
   } catch (err) {
-    server = new hyperspace.Server()
+    server = new dhub.Server()
     await server.ready()
-    client = new hyperspace.Client()
+    client = new dhub.Client()
     await client.ready()
   }
 
@@ -82,7 +82,7 @@ function launch (app, conf = {}, preload) {
     }
   })
 
-  win.hyperspacePreload = preload
+  win.dhubPreload = preload
 
   win.webContents.on('will-navigate', (event) => {
     event.preventDefault()
@@ -157,9 +157,9 @@ async function stop (e) {
   if (server) {
     e.preventDefault()
     if (server) {
-      console.log('Waiting for hyperspace server to close...')
+      console.log('Waiting for dhub server to close...')
       await server.close()
-      console.log('hyperspace server closed.')
+      console.log('dhub server closed.')
       server = null
     }
     app.quit()
